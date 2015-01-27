@@ -53,16 +53,12 @@
     
     UITableView *tableView;
     
-    id <UITableViewDelegate> delegate;
-    
-    id <KalDataSource> dataSource;
     
     NSDate *initialDate;
     
     BOOL isFollowingMonth;
     
     BOOL isPreviousMonth;
-    id calendarDelegate;
     
     // The date that the calendar was initialized with *or* the currently selected date when the view hierarchy was torn down in order to satisfy a low memory warning.
     
@@ -78,6 +74,7 @@
 
 @property (nonatomic, assign) id<KalDataSource> dataSource;
 
+@property (nonatomic, assign) id calendarDelegate;
 @property (nonatomic, retain, readonly) NSDate *selectedDate;
 @property (nonatomic,strong) NSDate *monthDate;
 @property (nonatomic, assign) id calendarDelegate;

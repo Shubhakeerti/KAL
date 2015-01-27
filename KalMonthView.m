@@ -111,12 +111,4 @@ extern const CGSize kTileSize;
   }
 }
 
-//#pragma mark -
-//
-//- (void)dealloc
-//{
-//  [tileAccessibilityFormatter release];
-//  [super dealloc];
-//}
-
 @end

@@ -403,8 +403,6 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     
     tableView.delegate = delegate;
     
-    [tableView retain];
-    
     [kalView selectDate:[KalDate dateFromNSDate:self.initialDate]];
     
     [self reloadData];
@@ -442,24 +440,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     [super viewDidAppear:animated];
     [tableView flashScrollIndicators];
 }
-//#pragma mark
-//- (void)dealloc
-//{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationSignificantTimeChangeNotification object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:KalDataSourceChangedNotification object:nil];
-//    
-//    [initialDate release];
-//    
-//    [selectedDate release];
-//    
-//    [logic release];
-//    
-//    [tableView release];
-//    
-//    [super dealloc];
-//    
-//}
+
 
 
 
