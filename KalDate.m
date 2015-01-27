@@ -30,7 +30,7 @@ static KalDate *today;
 
 + (KalDate *)dateForDay:(unsigned int)day month:(unsigned int)month year:(unsigned int)year
 {
-  return [[[KalDate alloc] initForDay:day month:month year:year] autorelease];
+  return [[KalDate alloc] initForDay:day month:month year:year];
 }
 
 + (KalDate *)dateFromNSDate:(NSDate *)date

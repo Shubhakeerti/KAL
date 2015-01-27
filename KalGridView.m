@@ -244,16 +244,16 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
 
 - (KalDate *)selectedDate { return selectedTile.date; }
 
-#pragma mark -
-
-- (void)dealloc
-{
-  [selectedTile release];
-  [highlightedTile release];
-  [frontMonthView release];
-  [backMonthView release];
-  [logic release];
-  [super dealloc];
-}
+//#pragma mark -
+//
+//- (void)dealloc
+//{
+//  [selectedTile release];
+//  [highlightedTile release];
+//  [frontMonthView release];
+//  [backMonthView release];
+//  [logic release];
+//  [super dealloc];
+//}
 
 @end
