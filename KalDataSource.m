@@ -10,7 +10,7 @@
 
 + (SimpleKalDataSource*)dataSource
 {
-  return [[[self class] alloc] init];
+  return [[[[self class] alloc] init] autorelease];
 }
 
 #pragma mark UITableViewDataSource protocol conformance
@@ -20,7 +20,7 @@
   static NSString *identifier = @"MyCell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
   }
   

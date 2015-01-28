@@ -283,7 +283,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     
     NSArray *markedDates = [theDataSource markedDatesFrom:logic.fromDate to:logic.toDate];
     
-    NSMutableArray *dates = [markedDates mutableCopy];
+    NSMutableArray *dates = [[markedDates mutableCopy] autorelease];
     
     for (int i=0; i<[dates count]; i++)
         
@@ -393,7 +393,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
         
         self.title = @"Calendar";
     
-    KalView *kalView = [[KalView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] delegate:self logic:logic];
+    KalView *kalView = [[[KalView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] delegate:self logic:logic] autorelease];
     
     self.view = kalView;
     
@@ -402,6 +402,8 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     tableView.dataSource = dataSource;
     
     tableView.delegate = delegate;
+    
+    [tableView retain];
     
     [kalView selectDate:[KalDate dateFromNSDate:self.initialDate]];
     
@@ -417,6 +419,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     
     [super viewDidUnload];
     
+    [tableView release];
     
     tableView = nil;
     
@@ -440,7 +443,24 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     [super viewDidAppear:animated];
     [tableView flashScrollIndicators];
 }
-
+#pragma mark
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationSignificantTimeChangeNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:KalDataSourceChangedNotification object:nil];
+    
+    [initialDate release];
+    
+    [selectedDate release];
+    
+    [logic release];
+    
+    [tableView release];
+    
+    [super dealloc];
+    
+}
 
 
 

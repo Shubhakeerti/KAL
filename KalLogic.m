@@ -131,18 +131,18 @@
   self.toDate = [[to NSDate] cc_dateByMovingToEndOfDay];
 }
 
-//#pragma mark -
-//
-//- (void) dealloc
-//{
-//  [monthAndYearFormatter release];
-//  [baseDate release];
-//  [fromDate release];
-//  [toDate release];
-//  [daysInSelectedMonth release];
-//  [daysInFinalWeekOfPreviousMonth release];
-//  [daysInFirstWeekOfFollowingMonth release];
-//  [super dealloc];
-//}
+#pragma mark -
+
+- (void) dealloc
+{
+  [monthAndYearFormatter release];
+  [baseDate release];
+  [fromDate release];
+  [toDate release];
+  [daysInSelectedMonth release];
+  [daysInFinalWeekOfPreviousMonth release];
+  [daysInFirstWeekOfFollowingMonth release];
+  [super dealloc];
+}
 
 @end

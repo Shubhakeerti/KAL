@@ -37,14 +37,14 @@
 
 - (NSDate *)cc_dateByMovingToFirstDayOfThePreviousMonth
 {
-  NSDateComponents *c = [[NSDateComponents alloc] init];
+  NSDateComponents *c = [[[NSDateComponents alloc] init] autorelease];
   c.month = -1;
   return [[[NSCalendar currentCalendar] dateByAddingComponents:c toDate:self options:0] cc_dateByMovingToFirstDayOfTheMonth];  
 }
 
 - (NSDate *)cc_dateByMovingToFirstDayOfTheFollowingMonth
 {
-  NSDateComponents *c = [[NSDateComponents alloc] init];
+  NSDateComponents *c = [[[NSDateComponents alloc] init] autorelease];
   c.month = 1;
   return [[[NSCalendar currentCalendar] dateByAddingComponents:c toDate:self options:0] cc_dateByMovingToFirstDayOfTheMonth];
 }
